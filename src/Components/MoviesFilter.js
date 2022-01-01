@@ -108,7 +108,7 @@ const MoviesFilterWrapper = styled.div`
       }
     }
   }
-  @media (min-width: 320px) {
+  @media (min-width: 319px) {
     h4 {
       margin: 0;
     }
@@ -128,14 +128,15 @@ const MoviesFilterWrapper = styled.div`
     }
     .moviefilter__containers {
       background-color: #cfe0e8;
-      padding: 0;
+      padding: 0px;
+      height: 80%;
       border-radius: 10px;
     }
     .moviefilter__year {
       border: none;
       background: transparent;
       padding: 0;
-      height: 100%;
+      width: 70%;
       outline: none;
       -moz-appearance: textfield;
       -webkit-appearance: none;
@@ -158,6 +159,7 @@ const MoviesFilterWrapper = styled.div`
       padding: 10;
       cursor: pointer;
       color: black;
+      height: 80%;
       &:hover {
         background-color: #65a2bf;
       }
