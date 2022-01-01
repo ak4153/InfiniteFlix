@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href='https://infiniteflix-e2c22.web.app/movies'>Demo</a>
 
 ## Available Scripts
 
