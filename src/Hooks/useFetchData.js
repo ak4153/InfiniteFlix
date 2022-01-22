@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { fromJSON } from "flatted";
+// "https://infiniteflix.herokuapp.com/movies";
+//http://localhost:3001/movies
+const BASEURL = "https://infiniteflix.herokuapp.com/movies";
 
-export default function useFetchData() {
+export default function useFetchData(searchAfterScroll) {
   const [movies, setMovies] = useState([]);
   const [yearFilter, setYearFilter] = useState({});
   const [skip, setSkip] = useState(0);
@@ -12,9 +15,14 @@ export default function useFetchData() {
   function getMovies() {
     axios({
       method: "post",
-      url: `https://infiniteflix.herokuapp.com/movies/`,
-      responseType: "stream",
-      data: { skip: skip, year: yearFilter.year, rating: yearFilter.rating },
+      url: BASEURL,
+
+      data: {
+        skip: skip,
+        year: yearFilter.year,
+        rating: yearFilter.rating,
+        title: yearFilter.title,
+      },
     }).then(function (response) {
       //checks if to fetch next 10 or new filtered based on state comaprison
       if (previousFilter === yearFilter)
@@ -24,7 +32,12 @@ export default function useFetchData() {
   }
 
   useEffect(() => {
-    getMovies();
+    //resets skip for infinite scrolling after filters apply
+    if (searchAfterScroll) {
+      searchAfterScroll = false;
+    } else {
+      getMovies();
+    }
   }, [skip]);
 
   useEffect(() => {

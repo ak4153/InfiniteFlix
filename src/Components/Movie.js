@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useStateValue } from "./StateProvider";
+import { Link, useParams } from "react-router-dom";
+import { actionTypes } from "./reducer";
 export default function Movie({ movie }) {
+  const [{}, dispatch] = useStateValue();
+
   return (
     <MovieWrapper>
       <Card style={{ width: "18rem" }}>
@@ -12,7 +17,14 @@ export default function Movie({ movie }) {
           <Card.Text>{movie.plot}</Card.Text>
           <Card.Text>{movie.year}</Card.Text>
           <Card.Text>{movie.imdb.rating}</Card.Text>
-          <Button variant="primary">Go to Movie</Button>
+          <Link
+            onClick={() =>
+              dispatch({ type: actionTypes.SET_MOVIE, movie: movie })
+            }
+            to={`${movie._id}`}
+          >
+            <Button variant="primary">Go to movie</Button>
+          </Link>
         </Card.Body>
       </Card>
     </MovieWrapper>

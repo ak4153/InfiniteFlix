@@ -12,15 +12,13 @@ export default function NavBar() {
         <Link className="navbar__link" to="movies">
           Movies
         </Link>
-        <Link className="navbar__link" to="search">
-          Search Movie
-        </Link>
       </nav>
     </NavBarWrapper>
   );
 }
 
 const NavBarWrapper = styled.div`
+  top: 0;
   .navbar {
     margin-top: 10px;
     display: flex;

@@ -7,7 +7,7 @@ import Home from "./Components/Home";
 import Movies from "./Components/Movies";
 import { StateProvider } from "./Components/StateProvider";
 import reducer, { initialState } from "./Components/reducer";
-
+import MoviePage from "./Components/MoviePage";
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider
@@ -19,8 +19,9 @@ ReactDOM.render(
         <NavBar />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
+          <Route path="home" element={<Home />} />
+          <Route path="movies" element={<Movies />}></Route>
+          <Route path="movies/:movieid" element={<MoviePage />} />
         </Routes>
       </BrowserRouter>
     </StateProvider>

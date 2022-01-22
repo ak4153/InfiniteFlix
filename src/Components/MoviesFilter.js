@@ -27,6 +27,11 @@ export default function MoviesFilter({ onFilterSubmit }) {
             onSubmit={(e) => onFilterSubmit(e)}
           >
             <div className="moviefilter__containers">
+              <label htmlFor="year">Title:</label>
+              <input type="text" className="moviefilter__year" />
+            </div>
+
+            <div className="moviefilter__containers">
               <label htmlFor="year">Year:</label>
               <input
                 placeholder="2015"
